@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¡Felices 29, amor!</title>
+  <style>
+    :root {
+      --bg: #FAF7F2;
+      --card: #FFFFFF;
+      --text: #222222;
+      --muted: #666666;
+      --accent: #C85A53;
+      --soft: #EFE7DE;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+    .card {
+      width: 100%;
+      max-width: 460px;
+      background: var(--card);
+      border-radius: 16px;
+      padding: 32px 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      text-align: center;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.85rem;
+    }
+    p {
+      margin: 0 0 22px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    input {
+      width: 190px;
+      padding: 12px;
+      font-size: 1.4rem;
+      letter-spacing: 8px;
+      text-align: center;
+      border: 2px solid #DDD4C8;
+      border-radius: 10px;
+      margin-bottom: 14px;
+      font-family: inherit;
+    }
+    button {
+      width: 100%;
+      padding: 13px;
+      border: none;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #FFF;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .error {
+      margin-top: 14px;
+      color: var(--accent);
+      font-weight: 600;
+      min-height: 22px;
+    }
+    #surprise {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 12px;
+      background: var(--soft);
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+  <main class="card" id="lock-screen">
+    <h1>¡Felices 29, amor! 🥳🍰</h1>
+    <p>Esto no ha hecho más que empezar, ¡te va a costar un rato encontrar tu último regalo!</p>
+		
+		<p>Repartidos por casa hay cuatro sobres secretos. Dentro de cada uno de ellos encontrarás las instrucciones que te llevarán a conseguir el código de 5 números que necesitas para descubrir tu regalo:</p>
+    <input id="code" type="text" inputmode="numeric" maxlength="5" placeholder="00000" />
+    <button onclick="unlock()">Desbloquear sorpresa</button>
+    <div id="error" class="error"></div>
+
+    <section id="surprise">
+      <h2>30/01 - 01/02</h2>
+      <p style="margin-bottom: 0; color: #222;">
+        La identidad del regalo está en el código en sí 😶‍🌫️
+      </p>
+    </section>
+  </main>
+
+  <script>
+    const SECRET_CODE = "20010";
+    function unlock() {
+      const code = document.getElementById("code").value.trim();
+      const error = document.getElementById("error");
+      const surprise = document.getElementById("surprise");
+
+      if (code === SECRET_CODE) {
+        error.textContent = "";
+        surprise.style.display = "block";
+      } else {
+        surprise.style.display = "none";
+        error.textContent = "Ese código aún no abre la sorpresa. ¡Revisa tus pistas!";
+      }
+    }
+  </script>
+</body>
+</html>

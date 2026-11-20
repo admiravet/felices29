@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🕵️‍♀️ PRIMER ACERTIJO 🕵️‍♀️</title>
+  <style>
+    :root {
+      --bg: #FAF7F2;
+      --card: #FFFFFF;
+      --text: #222222;
+      --muted: #666666;
+      --accent: #C85A53;
+      --soft: #EFE7DE;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+    .card {
+      width: 100%;
+      max-width: 440px;
+      background: var(--card);
+      border-radius: 16px;
+      padding: 28px 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      text-align: center;
+    }
+    .tag {
+      display: inline-block;
+      background: var(--soft);
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 6px 12px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+    h1 {
+      margin: 0 0 14px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.7rem;
+    }
+    p {
+      margin: 0 0 20px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+    .riddle {
+      color: var(--text);
+      font-size: 1.05rem;
+    }
+    input {
+      width: 110px;
+      padding: 12px;
+      font-size: 1.3rem;
+      text-align: center;
+      border: 2px solid #DDD4C8;
+      border-radius: 10px;
+      margin-bottom: 14px;
+      font-family: inherit;
+    }
+    button {
+      width: 100%;
+      padding: 13px;
+      border: none;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #FFF;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 16px;
+      font-weight: 600;
+      min-height: 24px;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <span class="tag">¿Cómo? ¿DIVERTICUMPLEAÑOS?</span>
+    <h1>🕵️‍♀️ PRIMER ACERTIJO 🕵️‍♀️</h1>
+    <p class="riddle">
+      Una fiesta es una fiesta <b>DIVERTICUMPLEAÑERA</b> si es (casi) seguro que al menos dos personas compartan cumpleaños. Esto es así siempre y cuando haya más parejas posibles que días tiene un año. ¿Cuántas personas tiene que haber, como mínimo, en una fiesta <b>DIVERTICUMPLEAÑERA</b>?
+    </p>
+    <input id="answer" type="number" min="0" max="999" placeholder="🎂" />
+    <button onclick="checkAnswer()">Comprobar número</button>
+    <div id="result" class="result"></div>
+  </main>
+
+  <script>
+    const CORRECT_DIGIT = "28";
+    function checkAnswer() {
+      const val = document.getElementById("answer").value.trim();
+      const res = document.getElementById("result");
+      if (val === CORRECT_DIGIT) {
+        res.style.color = "#2E7D32";
+        res.textContent = "¡DIVERTIFELICIDADES! Vaya cansancio de acertijo, ¿eh? Bueno, es que el regalo lo merece… Tu primer dígito es el DOS";
+      } else if (val === "365") {
+          res.style.color = "#C85A53";
+          res.textContent = "Estás flipando. ¿Tú sabes la de parejas diferentes que se pueden hacer con 365 personas?";
+      } else if (val === "0") {
+          res.style.color = "#C85A53";
+          res.textContent = "Claramente estás probando cosas al azar… Mira, con 2 personas sólo puedes hacer una pareja. Con 3, tres parejas. Con 4, seis parejas. Ánimo.";
+      } else {
+        res.style.color = "#C85A53";
+        res.textContent = "Casi... O no, yo qué sé, sólo soy un mensaje preprogramao.";
+      }
+    }
+  </script>
+</body>
+</html>
